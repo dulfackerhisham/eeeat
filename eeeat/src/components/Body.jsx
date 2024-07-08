@@ -10,7 +10,7 @@ const Body = () => {
 
   const [searchText, setSearchText] = useState("")
 
-  console.log("body rendered");
+  // console.log("body rendered");
 
   useEffect(() => {
     fetchData();

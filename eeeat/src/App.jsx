@@ -1,6 +1,6 @@
-import './App.css'
-import Header from './components/Header'
-import Body from './components/Body'
+import './App.css';
+import Header from './components/Header';
+import Body from './components/Body';
 
 function App() {
 
@@ -11,5 +11,7 @@ function App() {
     </div>
   )
 }
+
+
 
 export default App

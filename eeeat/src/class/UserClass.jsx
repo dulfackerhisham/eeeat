@@ -5,33 +5,52 @@ class UserClass extends React.Component {
     constructor(props) {
         super(props)
 
-        console.log(props);
+        // console.log(props);
+
         this.state = {
-            count: 0,
-            count2: 2
-        }
+            userInfo: {}
+        };
+        console.log(this.props.name + "constructor");
+    }
+
+    async componentDidMount() {
+        console.log(this.props.name,"didMount");
+
+        const data = await fetch("https://api.github.com/users/dulfackerhisham");
+        const json = await data.json();
+
+        // console.log(json);
+
+        this.setState({
+            userInfo: json
+        })
+
+    }
+
+    componentDidUpdate() {
+        console.log(this.props.name,"componentDidUpdate Is called");
+    }
+
+    componentWillUnmount() {
+        console.log(this.props.name ,"componentWIllUnmount");
     }
 
     render () {
-        const {name, location} = this.props;
-        const {count, count2} = this.state
+        console.log(this.props.name ,"render");
+        const {id, name, avatar_url, created_at} = this.state.userInfo;
 
         return (
             <div className="user-container">
-                <h1>{count}</h1>
-                <h1>{count2}</h1>
-            <button onClick={() => {
-                this.setState({
-                    count2: this.state.count2 + 1
-                })
-            }}>
-                add Count</button>
-            <h2>Name: {name}</h2>
+            {/* {console.log("child return")} */}
+
+                <img src={avatar_url}/>
+                <h3>{id}</h3>
+                <h1>{name}</h1>
+                <p>{created_at}</p>
             <h3>Occupation: Software Engineer</h3>
-            <h4>Location: {location}</h4>
         </div>
         )
     }
 }
 
-export default UserClass
+export default UserClass;

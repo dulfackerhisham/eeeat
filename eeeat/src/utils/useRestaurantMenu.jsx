@@ -20,4 +20,4 @@ const useRestaurantMenu = (resId) => {
     return resInfo;
 }
 
-export default useRestaurantMenu
+export default useRestaurantMenu;

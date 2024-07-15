@@ -1,9 +1,10 @@
 import RestaurantCard, {withVegLabel} from "./RestaurantCards"
 // import restaList from "../utils/mockData"
-import {useEffect, useState} from "react";
+import {useContext, useEffect, useState} from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from "../utils/Usercontext";
 
 const Body = () => {
 
@@ -13,6 +14,8 @@ const Body = () => {
   const [searchText, setSearchText] = useState("")
 
   const RestaurantCardVeg = withVegLabel(RestaurantCard);
+
+  const {setUserData, loggedInUser} = useContext(UserContext);
 
   // const RestaurantCardVeg = withVegLabel(RestaurantCard);
 
@@ -88,6 +91,13 @@ const Body = () => {
         >
         Top Rated Restaurants
         </button>
+        </div>
+
+        <div className="flex items-center m-4">
+          <input type="text"
+          className="border"
+          value={loggedInUser}
+          onChange={(e) => setUserData(e.target.value)} />
         </div>
 
       </div>

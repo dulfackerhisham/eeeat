@@ -58,6 +58,7 @@ const Body = () => {
   return listOfRestaurant.length === 0 ? <Shimmer /> :(
 
     <div className="body">
+      
       <div className="flex">
 
         <div className="m-4 p-4 ">
@@ -93,9 +94,9 @@ const Body = () => {
         </button>
         </div>
 
-        <div className="flex items-center m-4">
+        <div className="flex items-center">
           <input type="text"
-          className="border"
+          className="border-black border"
           value={loggedInUser}
           onChange={(e) => setUserData(e.target.value)} />
         </div>

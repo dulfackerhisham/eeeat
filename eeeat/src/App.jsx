@@ -16,7 +16,7 @@ function App() {
     };
     setUserData(data.name);
   }, [])
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <Provider store={appStore}>

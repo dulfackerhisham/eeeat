@@ -10,6 +10,7 @@ import Contact from '../src/components/Contact.jsx';
 import RestaurantMenu from './components/RestaurantMenu.jsx'
 import { Suspense } from 'react';
 import { lazy } from 'react';
+import Cart from './components/Cart.jsx';
 // import Grocery from './components/Grocery.jsx'
 
 
@@ -39,6 +40,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/grocery",
         element: (<Suspense fallback={<><h1>the page is loading....</h1></>}> <Grocery /> </Suspense>)
+      },
+      {
+        path: "/cart",
+        element: <Cart />
       }
     ],
     errorElement: <Error />
